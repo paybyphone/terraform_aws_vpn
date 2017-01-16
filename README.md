@@ -38,7 +38,7 @@ Usage example:
     }
 
     module "vpn" {
-      source                    = "git::ssh://git@stash.dc0.verrus.net/tfm/paybyphone-vpn.git?ref=v0.1.0"
+      source                    = "github.com/paybyphone/terraform_aws_vpn?ref=VERSION"
       private_route_table_count = "2"
       private_route_table_ids   = "${module.private_subnets.private_route_table_ids}"
       project_path              = "your/project"
