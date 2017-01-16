@@ -11,7 +11,7 @@
  * routes necessary to connect between the two networks. It does **not** set up
  * firewall access for you - make sure you have set up any security groups and
  * network ACLs properly to allow the desired traffic across.
-
+ * 
  * Although the module can be used independently, it is designed for use with
  * the `terraform_aws_vpc` and `terraform_aws_private_subnet` modules found
  * here:
