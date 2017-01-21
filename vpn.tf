@@ -53,6 +53,6 @@ resource "aws_vpn_connection_route" "vpn_connection_route" {
 resource "aws_route" "private_remote_route" {
   count                  = "${length(var.remote_network_addresses) * var.private_route_table_count}"
   route_table_id         = "${element(var.private_route_table_ids, count.index / length(var.remote_network_addresses))}"
-  destination_cidr_block = "${element(split(var.remote_network_addresses) count.index)}"
+  destination_cidr_block = "${element(var.remote_network_addresses, count.index)}"
   gateway_id             = "${aws_vpn_gateway.vpn_gateway.id}"
 }
