@@ -10,9 +10,9 @@ variable "vpc_id" {
   type = "string"
 }
 
-// The IP address of the VPN endpoint.
-variable "vpn_ip_address" {
-  type = "string"
+// The IP addresses of the VPN endpoints that you want to connect to.
+variable "vpn_ip_addresses" {
+  type = "list"
 }
 
 // The remote network addresses to VPN to.

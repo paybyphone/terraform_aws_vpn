@@ -55,7 +55,7 @@ Usage example:
 |------|-------------|:-----:|:-----:|
 | project_path | The path of the project in VCS. | - | yes |
 | vpc_id | The VPC ID. | - | yes |
-| vpn_ip_address | The IP address of the VPN endpoint. | - | yes |
+| vpn_ip_addresses | The IP addresses of the VPN endpoints that you want to connect to. | - | yes |
 | remote_network_addresses | The remote network addresses to VPN to. | - | yes |
 | private_route_table_count | The number of route tables supplied to private_route_table_ids. This needs to be an exact match, or there will be an error. This parameter needs to be present due to current limitations in Terraform and may be removed in later releases. | - | yes |
 | private_route_table_ids | The route table IDs of the private network to connect with the VPN. | - | yes |
