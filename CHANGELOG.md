@@ -1,6 +1,7 @@
-## 0.1.2-pre
+## 0.2.0
 
-Bumped version for dev.
+Added support for multiple VPN endpoints. This will now allow you to create a
+VPN that should tunnel to multiple endpoints.
 
 ## 0.1.1
 
