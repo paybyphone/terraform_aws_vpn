@@ -1,3 +1,7 @@
+## 0.2.1-pre
+
+Bumped version for dev.
+
 ## 0.2.0
 
 Added support for multiple VPN endpoints. This will now allow you to create a
