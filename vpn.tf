@@ -3,13 +3,13 @@
 // existing_vpn_gateway checks to see if there is an existing VPN gateway
 // attached to the VPC in question. There can only be one VPN gateway per VPC.
 data "aws_vpn_gateway" "existing_vpn_gateway" {
-  count = "${var.use_existing_vpn_gateway == "true" ? "1" : "0"}"
+  count = "${var.use_existing_vpn_gateway == "true" ? 1 : 0}"
   id    = "${var.existing_vpn_gateway_id}"
 }
 
 // vpn_gateway creates the VPN gateway resource.
 resource "aws_vpn_gateway" "vpn_gateway" {
-  count  = "${var.use_existing_vpn_gateway == "true" ? "0" : "1"}"
+  count  = "${var.use_existing_vpn_gateway == "true" ? 0 : 1}"
   vpc_id = "${var.vpc_id}"
 
   tags {
