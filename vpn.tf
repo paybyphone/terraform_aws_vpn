@@ -64,5 +64,5 @@ resource "aws_route" "private_remote_route" {
   count                  = "${length(var.remote_network_addresses) * var.private_route_table_count}"
   route_table_id         = "${element(var.private_route_table_ids, count.index / length(var.remote_network_addresses))}"
   destination_cidr_block = "${element(var.remote_network_addresses, count.index)}"
-  vpn_gateway_id         = "${var.existing_vpn_gateway_id != "" ? data.aws_vpn_gateway.existing_vpn_gateway.id : aws_vpn_gateway.vpn_gateway.id}"
+  gateway_id             = "${var.existing_vpn_gateway_id != "" ? data.aws_vpn_gateway.existing_vpn_gateway.id : aws_vpn_gateway.vpn_gateway.id}"
 }
