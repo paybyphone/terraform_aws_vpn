@@ -2,7 +2,7 @@
 
 // vpn_gateway creates the VPN gateway resource.
 resource "aws_vpn_gateway" "vpn_gateway" {
-  vpc_id = "${var.vpc_id}"
+  vpc_id = "${var.existing_vpn_gateway_id != "" ? "" : var.vpc_id}"
 
   tags {
     project_path = "${var.project_path}"
