@@ -55,7 +55,8 @@ Usage example:
 |------|-------------|:-----:|:-----:|
 | project_path | The path of the project in VCS. | - | yes |
 | vpc_id | The VPC ID. | - | yes |
-| existing_vpn_gateway_id | The ID of an existing VPN gateway. If this is specified, a new VPN gateway is not created. Use this when you need to create another set of VPN connections to a different set of remote subnets, as AWS only allows one VPN gateway per VPC. | `` | no |
+| use_existing_vpn_gateway | Use an existing VPN gateway. If this is specified, a new VPN gateway is not created. Use this when you need to create another set of VPN connections to a different set of remote subnets, as AWS only allows one VPN gateway per VPC. | `false` | no |
+| existing_vpn_gateway_id | The ID of the existing VPN gateway when `use_existing_vpn_gateway` is enabled. | `` | no |
 | vpn_ip_addresses | The IP addresses of the VPN endpoints that you want to connect to. | - | yes |
 | remote_network_addresses | The remote network addresses to VPN to. | - | yes |
 | private_route_table_count | The number of route tables supplied to private_route_table_ids. This needs to be an exact match, or there will be an error. This parameter needs to be present due to current limitations in Terraform and may be removed in later releases. | - | yes |
