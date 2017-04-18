@@ -10,17 +10,10 @@ variable "vpc_id" {
   type = "string"
 }
 
-// Use an existing VPN gateway. If this is specified, a new VPN gateway is not
-// created. Use this when you need to create another set of VPN connections to
-// a different set of remote subnets, as AWS only allows one VPN gateway per
-// VPC.
-variable "use_existing_vpn_gateway" {
-  type    = "string"
-  default = "false"
-}
-
-// The ID of the existing VPN gateway when `use_existing_vpn_gateway` is
-// enabled. 
+// The ID of an existing VPN gateway. If this is specified, a new VPN gateway
+// is not created. Use this when you need to create another set of VPN
+// connections to a different set of remote subnets, as AWS only allows one VPN
+// gateway per VPC.
 variable "existing_vpn_gateway_id" {
   type    = "string"
   default = ""

@@ -26,7 +26,7 @@ resource "aws_customer_gateway" "vpn_endpoint" {
 // vpn_connection ties together the VPN gateway and the customer gateway.
 resource "aws_vpn_connection" "vpn_connection" {
   count               = "${length(var.vpn_ip_addresses)}"
-  vpn_gateway_id      = "${var.use_existing_vpn_gateway == "true" ? var.existing_vpn_gateway_id : aws_vpn_gateway.vpn_gateway.id}"
+  vpn_gateway_id      = "${var.existing_vpn_gateway_id != "" ? var.existing_vpn_gateway_id : aws_vpn_gateway.vpn_gateway.id}"
   customer_gateway_id = "${element(aws_customer_gateway.vpn_endpoint.*.id, count.index)}"
   static_routes_only  = true
   type                = "ipsec.1"
@@ -56,5 +56,5 @@ resource "aws_route" "private_remote_route" {
   count                  = "${length(var.remote_network_addresses) * var.private_route_table_count}"
   route_table_id         = "${element(var.private_route_table_ids, count.index / length(var.remote_network_addresses))}"
   destination_cidr_block = "${element(var.remote_network_addresses, count.index)}"
-  gateway_id             = "${var.use_existing_vpn_gateway == "true" ? var.existing_vpn_gateway_id : aws_vpn_gateway.vpn_gateway.id}"
+  gateway_id             = "${var.existing_vpn_gateway_id != "" ? var.existing_vpn_gateway_id : aws_vpn_gateway.vpn_gateway.id}"
 }
