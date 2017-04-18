@@ -10,6 +10,15 @@ variable "vpc_id" {
   type = "string"
 }
 
+// The ID of an existing VPN gateway. If this is specified, a new VPN gateway
+// is not created. Use this when you need to create another set of VPN
+// connections to a different set of remote subnets, as AWS only allows one VPN
+// gateway per VPC.
+variable "existing_vpn_gateway_id" {
+  type    = "string"
+  default = ""
+}
+
 // The IP addresses of the VPN endpoints that you want to connect to.
 variable "vpn_ip_addresses" {
   type = "list"
