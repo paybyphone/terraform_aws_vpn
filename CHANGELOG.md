@@ -1,3 +1,7 @@
+## 0.2.2-pre
+
+Bumped version for dev.
+
 ## 0.2.1
 
 This update adds the `existing_vpn_gateway_id` flag, which allows you to supply
