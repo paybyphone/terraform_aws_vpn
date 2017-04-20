@@ -1,6 +1,9 @@
-## 0.2.1-pre
+## 0.2.1
 
-Bumped version for dev.
+This update adds the `existing_vpn_gateway_id` flag, which allows you to supply
+a pre-existing AWS VPN gateway ID that will become the VPN gateway that is used
+for this connection and remote networks. AWS only allows one VPN gateway
+attached to a VPC at any given time.
 
 ## 0.2.0
 
