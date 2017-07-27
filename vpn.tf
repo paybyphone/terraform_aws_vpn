@@ -5,6 +5,7 @@ resource "aws_vpn_gateway" "vpn_gateway" {
   vpc_id = "${var.existing_vpn_gateway_id != "" ? "" : var.vpc_id}"
 
   tags {
+    created_by   = "terraform"
     project_path = "${var.project_path}"
   }
 }
@@ -19,6 +20,8 @@ resource "aws_customer_gateway" "vpn_endpoint" {
   type       = "ipsec.1"
 
   tags {
+    Name         = "${var.customer_gateway_name}"
+    created_by   = "terraform"
     project_path = "${var.project_path}"
   }
 }
@@ -32,6 +35,8 @@ resource "aws_vpn_connection" "vpn_connection" {
   type                = "ipsec.1"
 
   tags {
+    Name         = "${var.customer_gateway_name}"
+    created_by   = "terraform"
     project_path = "${var.project_path}"
   }
 }

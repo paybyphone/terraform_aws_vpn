@@ -19,6 +19,12 @@ variable "existing_vpn_gateway_id" {
   default = ""
 }
 
+// Name to assign to the Customer Gateway. Pass an empty string for no name
+variable "customer_gateway_name" {
+  type    = "string"
+  default = ""
+}
+
 // The IP addresses of the VPN endpoints that you want to connect to.
 variable "vpn_ip_addresses" {
   type = "list"
