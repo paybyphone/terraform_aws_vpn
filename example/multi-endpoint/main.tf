@@ -17,7 +17,6 @@ module "private_subnets" {
 
 module "vpn" {
   source                    = "../../"
-  private_route_table_count = "2"
   private_route_table_ids   = "${module.private_subnets.private_route_table_ids}"
   project_path              = "your/project"
   remote_network_addresses  = ["192.168.0.0/24", "192.168.1.0/24"]
