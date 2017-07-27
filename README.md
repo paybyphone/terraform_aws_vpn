@@ -55,7 +55,6 @@ Usage example:
 |------|-------------|:-----:|:-----:|
 | customer_gateway_name | Name to assign to the Customer Gateway. Pass an empty string for no name | `` | no |
 | existing_vpn_gateway_id | The ID of an existing VPN gateway. If this is specified, a new VPN gateway is not created. Use this when you need to create another set of VPN connections to a different set of remote subnets, as AWS only allows one VPN gateway per VPC. | `` | no |
-| private_route_table_count | The number of route tables supplied to private_route_table_ids. This needs to be an exact match, or there will be an error. This parameter needs to be present due to current limitations in Terraform and may be removed in later releases. | - | yes |
 | private_route_table_ids | The route table IDs of the private network to connect with the VPN. | - | yes |
 | project_path | The path of the project in VCS. | - | yes |
 | remote_asn | The AS number of the remote network. | `65000` | no |

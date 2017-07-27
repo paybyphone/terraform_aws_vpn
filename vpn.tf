@@ -51,14 +51,8 @@ resource "aws_vpn_connection_route" "vpn_connection_route" {
 
 // private_remote_route defines the routes to the remote networks on the
 // supplied route tables.
-//
-// This is a 2-part item - private route tables need to be supplied as
-// private_route_table_ids, and the number of tables needs to be supplied as
-// private_route_table_count to ensure that Terraform can interpolate the count
-// variable properly. private_route_table_count will be able to be removed in
-// the future once TF supports computed variables in count.
 resource "aws_route" "private_remote_route" {
-  count                  = "${length(var.remote_network_addresses) * var.private_route_table_count}"
+  count                  = "${length(var.remote_network_addresses) * length(var.private_route_table_ids)}"
   route_table_id         = "${element(var.private_route_table_ids, count.index / length(var.remote_network_addresses))}"
   destination_cidr_block = "${element(var.remote_network_addresses, count.index)}"
   gateway_id             = "${var.existing_vpn_gateway_id != "" ? var.existing_vpn_gateway_id : aws_vpn_gateway.vpn_gateway.id}"
